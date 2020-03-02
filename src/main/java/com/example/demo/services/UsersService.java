@@ -1,7 +1,9 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Projects;
+import com.example.demo.entities.Users;
 import com.example.demo.repositories.ProjectsRepository;
+import com.example.demo.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,16 +13,16 @@ import java.util.Optional;
 @Service
 public class UsersService {
     @Autowired
-    private ProjectsRepository repository;
+    private UsersRepository repository;
 
-    public List<Projects> getAll(){
+    public List<Users> getAll(){
         return repository.findAll();
     }
-    public Projects findById(Long id){
-        Optional<Projects> obj= repository.findById(id);
+    public Users findById(Long id){
+        Optional<Users> obj= repository.findById(id);
         return obj.get();
     }
-    public void Insert(Projects project){
-        repository.save(project);
+    public void Insert(Users users){
+        repository.save(users);
     }
 }
